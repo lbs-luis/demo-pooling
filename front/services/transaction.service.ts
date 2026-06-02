@@ -17,8 +17,12 @@ export async function doPix(req: {
   target: number;
   amount: number;
 }) {
+  console.log("pix-body: ", req)
+
   const response = await fetch(`${baseURL}/pix`, {
-    cache: "no-store",
+    headers: {
+      'Content-Type': 'application/json'
+    },
     method: "POST",
     body: JSON.stringify(req),
   });
